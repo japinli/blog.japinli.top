@@ -16,7 +16,7 @@ tags: dns
 
 ### 网络配置文件
 
-若是通过网络配置文件修改 DNS，那么我们只需要在 /etc/network/interfaces 文件中加入 nameserver 即可，如下所
+若是通过网络配置文件修改 DNS，那么我们只需要在 /etc/network/interfaces 文件中加入 nameserver 即可，如下所示：
 
 ``` text
 dns-nameserver 114.114.114.114
@@ -38,4 +38,4 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
 
-在该文件中，每个域名服务器的地址单独一行，不能同时在一行上指定多个域名服务器。修改成功后，我们只需要运行 `sudo resolvconf -u` 更新 /etc/resolv.conf 文件即可。这种方式不需要重启电脑。此外，如果我们直接修改 /etc/resolv.conf 文件也可以添加域名服务器，但是这种方式添加的域名服务器在系统重启之后将失效。
+在该文件中，每个域名服务器的地址单独一行，不能同时在一行上指定多个域名服务器。修改成功后，我们只需要运行 `sudo resolvconf -u` 更新 /etc/resolv.conf 文件即可。这种方式不需要重启电脑。此外，我们也可以直接在 /etc/resolv.conf 文件中添加域名服务器，但是这种方式添加的域名服务器在系统重启之后将失效，这是因为 /etc/resolv.conf 文件是由 resolvconf 命令生成的，重启后该文件将被重写。
