@@ -10,9 +10,9 @@ tags: dns
 
 {% asset_img Domain_name_space.png Domain name space %}
 
-在 Ubuntu 平台，我目前所了解到的 DNS 的配置主要有两种方式 (配置文件修改)：网络配置文件 interfaces 和域名解析配置文件 resolvconf。
-
 <!-- more -->
+
+在 Ubuntu 平台，我目前所了解到的 DNS 的配置主要有两种方式 (配置文件修改)：网络配置文件 interfaces 和域名解析配置文件 resolvconf。
 
 ### 网络配置文件
 
