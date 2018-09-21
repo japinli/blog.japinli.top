@@ -26,7 +26,7 @@ Cstore_fdw 采用 Optimized Row Columnar (ORC) 格式作为其数据的物理存
 
 ### 编译
 
-Cstore_fdw 依赖 protobuf-c 来序列化和反序列化表的元数据信息，因此需要先安装 protobuf-c 套件：
+Cstore_fdw 依赖 protobuf-c 来序列化和反序列化表的元数据信息，因此需要先安装 protobuf-c 套件 (Ubuntu 平台)：
 
 ``` shell
 $ sudo apt-get install protobuf-c-compiler libprotobuf-c-dev
