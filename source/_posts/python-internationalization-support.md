@@ -223,6 +223,8 @@ i18n/
     +-- main.py
 ```
 
+你可以在 [github][] 上下载整个工程文件。
+
 ## 参考
 
 [1] https://phraseapp.com/blog/posts/translate-python-gnu-gettext/
@@ -231,3 +233,5 @@ i18n/
 <hr>
 
 __P.S.__ Internationalization 简写为 I18N 是因为在单词第一个字母 I 和最后一个字母 N 之间有 18 个字符。Localization 亦是如此。
+
+[github]: https://github.com/japinli/i18n
