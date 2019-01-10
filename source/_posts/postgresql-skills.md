@@ -50,6 +50,38 @@ tags: PostgreSQL
 
     其中，`oid` 为表空间的对象 ID。我们可以通过 `SELECT oid FROM pg_tablespace;` 来查询获得。
 
+7. 查看表对应的文件路径
+
+    ``` psql
+    SELECT pg_relation_filepath(oid);
+    ```
+8. 获取当前事务 ID 编号
+
+    ```psql
+    SELECT txid_current();
+    ```
+
+9. 获取当前 WAL 日志的写入位置
+
+    ``` psql
+    SELECT pg_current_wal_lsn();          -- version 10 or later
+    SELECT pg_current_xlog_location();    -- before version 10
+    ```
+
+10. 获取当前 WAL 日志的插入位置
+
+    ``` psql
+    SELECT pg_current_wal_insert_lsn();          -- version 10 or later
+    SELECT pg_current_xlog_insert_location();    -- before version 10
+    ```
+
+11. 获取日志所在的 WAL 日志文件
+
+    ```psql
+    SELECT pg_walfile_name(lsn);     -- version 10 or later
+    SELECT pg_xlogfile_name(lsn);    -- before version 10
+    ```
+
 ### 参考
 
 [1] https://www.postgresql.org/docs/current/functions-admin.html
