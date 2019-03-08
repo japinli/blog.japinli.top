@@ -84,5 +84,5 @@ $ keytool -list -v -keystore <your_path_to_jre>/lib/security/cacerts
 
 ### 参考
 
-[1] https://stackoverflow.com/questions/684081/importing-ssl-certificate-into-eclipse
-[2] https://stackoverflow.com/questions/9889669/error-importing-ssl-certificate-not-an-x-509-certificate
+[1] [Importing SSL certificate into eclipse](https://stackoverflow.com/questions/684081/importing-ssl-certificate-into-eclipse)
+[2] [Error importing SSL certificate not an X509 certificate](https://stackoverflow.com/questions/9889669/error-importing-ssl-certificate-not-an-x-509-certificate)

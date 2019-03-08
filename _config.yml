@@ -8,7 +8,7 @@ subtitle:
 description: Just for fun!
 keywords:
 author: Japin Li
-language: zh-CN
+language: zh-Hans
 timezone: Asia/Shanghai
 
 # URL
@@ -79,4 +79,4 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/japinli/japinli.github.io
+  repo: git@github.com:japinli/japinli.github.io.git
