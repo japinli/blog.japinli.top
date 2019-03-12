@@ -108,6 +108,31 @@ __备注：__ 主要基于 PostgreSQL 10 及其后续版本。
   postgres=# \set ECHO_HIDDEN on
   ```
 
+### 其他工具
+
+* oid2name
+
+	该工具可以方便的查看数据库对象与 OID 的关系。我们可以通过如下方式查看数据库的 OID。
+
+    ``` shell
+    $ oid2name
+    All databases:
+        Oid  Database Name  Tablespace
+    ----------------------------------
+      12405       postgres  pg_default
+      12404      template0  pg_default
+          1      template1  pg_default
+    ```
+
+    此外，我们也可以通过该命令查看表的 filenode。
+
+    ``` shell
+    $ oid2name -d postgres -t foo
+    From database "postgres":
+      Filenode  Table Name
+    ----------------------
+         16466         foo
+    ```
 
 ### 参考
 
