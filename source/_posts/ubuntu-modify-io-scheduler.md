@@ -3,7 +3,7 @@ title: "Ubuntu 修改 I/O 调度算法"
 date: 2019-03-11 21:39:41 +0800
 category: Misc
 tags:
-  - scheduler
+  - Scheduler
   - Ubuntu
 ---
 

@@ -134,6 +134,22 @@ __备注：__ 主要基于 PostgreSQL 10 及其后续版本。
          16466         foo
     ```
 
+### 性能分析
+
+* 查询数据库事务提交率
+
+    ``` sql
+    SELECT xact_commit::float / (xact_commit + xact_rollback) AS xact_commit_rate
+    FROM pg_stat_database WHERE datname = 'postgres';
+    ```
+
+* 查询数据库缓存命中率
+
+    ``` sql
+    SELECT blks_hit::float / (blks_hit + blks_read) AS blks_hit_rate
+    FROM pg_stat_database WHERE datname = 'postgres';
+    ```
+
 ### 参考
 
 [1] https://www.postgresql.org/docs/current/functions-admin.html

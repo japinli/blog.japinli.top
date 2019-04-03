@@ -4,7 +4,7 @@ date: 2018-10-27 20:55:21 +0800
 category: Database
 tags:
   - cstore_fdw
-  - columnar store
+  - Columnar Store
 ---
 
 在{% post_link introduction-cstore-fdw-columnar-store 上一篇 %}中我介绍了如何安装和使用列存数据库 cstore_fdw。接着，我将在本篇中介绍 cstore_fdw 是如何实现的。

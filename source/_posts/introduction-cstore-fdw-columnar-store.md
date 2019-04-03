@@ -2,9 +2,9 @@
 title: 列存数据库 cstore_fdw 入门
 date: 2018-09-18 21:40:00
 category: Database
-tags: 
+tags:
   - cstore_fdw
-  - columnar store
+  - Columnar Store
   - PostgreSQL
 ---
 

@@ -1,9 +1,8 @@
 ---
-layout: post
 title: "Emacs 编辑二进制文件"
 date: 2018-10-16 22:00:23 +0800
-category: Misc
-tags: emacs
+category: Editor
+tags: Emacs
 ---
 
 二进制文件是以二进制格式存储的文件，它是计算机可读的，人类不直接阅读二进制文件。所有的可执行程序都以二进制文件存储。那我们该如何编辑二进制文件呢？在我使用的 Emacs 编辑器中提供了一个 hexl-mode 的主模式来编辑二进制文件。本文记录了 Emacs 中编辑二进制文件的基本操作。
