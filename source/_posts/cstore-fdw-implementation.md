@@ -100,7 +100,7 @@ typedef struct TableWriteState
 `CStoreBeginWrite()` 函数的执行主要分为以下四个步骤：
 
 1. 检测表页脚文件是否存在。如果存在，则将其内容读取出来并反序列化到 TableFooter 对象中；反之，若是不存在该文件，说明是第一次向表中插入数据，cstore_fdw 则在内存中创建一个新的 TableFooter 对象。其实在构造 TableFooter 之前，cstore_fdw 会根据表页脚文件的存在与否来决定表数据文件的打开方式。
-2. 从 tableFooter->stripMetadataList 中读取当前表数据文件的写入位置，并表数据文件的文件写入指针的位置。即读取最后一个 StripeMetadata 并将四个成员相加从而计算下个 stripe 应该写入的位置。
+2. 从 tableFooter->stripMetadataList 中读取当前表数据文件的写入位置，并将表数据文件的文件写入指针移动到该位置，即读取最后一个 StripeMetadata 并将四个成员相加从而计算下个 stripe 应该写入的位置。
 3. 遍历所有的列并获取该列的压缩算法。
 4. 创建 stripe 内存上下文，在此之后，所有的列存相关的内存分配都在该内存上下文上进行分配，以便进行内存管理。同时我们需要为每个列新建 ColumnBlockData 对象用于存储插入的值，详细见 `CreateEmptyBlockDataArray()` 函数。
 
