@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL 优化 setitimer 系统调用"
 date: 2020-08-31 22:46:59 +0800
-category: Database
+category: 数据库
 tags:
   - PostgreSQL
   - 源码分析

@@ -10,7 +10,7 @@ PostgreSQL 12 的流复制与之前的版本有所不同，主要有以下几点
 
 1. PG12 将原有的属于 `recovery.conf` 配置文件中配置项迁移到了 `postgresql.conf` 文件中，在新系统中如果存在 `recovery.conf` 文件，数据库将无法启动；
 2. 文件 `recovery.signal` 和 `standby.signal` 用于切换数据库为非主（non-primary）模式；
-3. `trigger_file` 被修改为 `promote_trigger_file` 并且只能在 `postgresql.conf` 配置文件或服务器命令行进行配置；
+3. `trigger_file` 被修改为 `promote_trigger_file`，~并且只能在 `postgresql.conf`~ 可在配置文件或服务器命令行进行配置；
 4. 最后，`standby_mode` 参数被移除了。
 
 详细说明请[移步官网](https://www.postgresql.org/docs/12/release-12.html)。本文将在 Ubuntu 18.04 LTS 下搭建 PG12 的流复制系统。
@@ -211,6 +211,8 @@ postgres=# select pg_is_in_recovery();    -- 从节点
 ```
 
 接着，我们在从节点的 `postgresql.conf` 文件中加入 `promote_trigger_file=/tmp/.tfile` 配置，这是，当主节点掉线时，我们在从节点创建 `/tmp/.tfile` 文件，那么从节点将自动提升为主。
+
+如果我们在主节点没有掉线的情况下，创建了 `/tmp/.tfile` 这个触发文件，那么此时从节点将创建一个新的时间线，从而导致主从不一致。
 
 ## 参考
 
