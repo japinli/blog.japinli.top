@@ -48,7 +48,16 @@ $ git checkout -- '*.c'
 
 上面的命令可以撤销所有对 C 源文件的修改。
 
+[Git 2.23 版本中引入了 `git restore` 和 `git switch` 命令](https://public-inbox.org/git/xmqqy2zszuz7.fsf@gitster-ct.c.googlers.com/)，其中 `git restore` 可以用于撤销修改，其使用方式与 `git checkout` 类似。
+
+| 命令                                | 作用                                              |
+|-------------------------------------|---------------------------------------------------|
+| `git restore --worktree README.md`  | 表示撤销 README.md 文件工作区的的修改             |
+| `git restore --staged README.md`    | 表示撤销暂存区的修改，将文件状态恢复到未 add 之前 |
+| `git restore -s HEAD~1 README.md`   | 表示将当前工作区切换到上个 commit 版本            |
+| `git restore -s <commit> README.md` | 表示将当前工作区切换到指定 commit 的版本          |
 
 ## 参考
 
 [1] https://git-scm.com/docs/git-checkout
+[2] https://public-inbox.org/git/xmqqy2zszuz7.fsf@gitster-ct.c.googlers.com/
