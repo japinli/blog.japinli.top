@@ -53,7 +53,7 @@ index dda70ef9f3..cb07958a1f 100644
 
 ## 分析
 
-在 Alvaro Herrera 的指导下，我通过分析原始代码和修改后代码的汇编代码进行分析。原版 PostgreSQL 数据库 `palloc()` 和 `palloc0()` 的汇编代码如下：
+在 Alvaro Herrera 的指导下，我通过分析原始代码和修改后代码的汇编代码进行分析。原版 PostgreSQL 数据库 `palloc()` 和 `palloc0()` 的汇编代码如下（使用命令 `objdump -S --disassemble postgres` 查看）：
 
 ```
 00000000005175b0 <palloc>:
