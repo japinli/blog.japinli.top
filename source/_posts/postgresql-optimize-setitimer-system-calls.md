@@ -172,3 +172,7 @@ index f1c9518b0c..b5027815db 100644
 其基本思想是通过 alarm 来取代频繁地调用 `setitimer()` 函数，而不是针对每个 timeout 都去调用 `setitimer()` 函数，这真的是将性能挖掘到了极限啊！
 
 变量 `sigalrm_due_at` 记录了最近一个定时器的到期时间，`sigalrm_delivered` 则记录是否已经触发了 sigalrm 信号。当最近的定时器的超时时间大于或等于 `sigalrm_due_at` 并且不存在没有交付的定时器时，它将不会对其调用 `setitimer()` 来设置定时器。
+
+## 更新
+
+* __2020-11-21__ - 最近该功能在被 Review 的时候发现一个问题，由于我们仅设置了最近的一个 timeout，那么当 `handle_sig_alarm()` 被中断时，可能出现后续的 timeout 无法正常工作，因此我们需要在故障恢复的时候重新调用 `setitimer()` 函数设置 timeout，[详细实现](https://www.postgresql.org/message-id/2B9BB40C-DDEA-4CDB-B37E-C2738E739416%40hotmail.com)。
