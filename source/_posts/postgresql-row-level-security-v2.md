@@ -202,3 +202,18 @@ INSERT 0 1
 
 [1] https://www.postgresql.org/docs/current/sql-createpolicy.html
 [2] https://learn.graphile.org/docs/PostgreSQL_Row_Level_Security_Infosheet.pdf
+
+
+<div class="just-for-fun">
+笑林广记 - 不准纳妾
+
+有悍妻者，颇知书。其夫谋纳妾，乃曰：“于传有之，齐人有一妻一妾。”
+妻曰：“若尔，则我更纳一夫。”
+其夫曰：“传有之乎？”
+妻答曰：“河南程氏两夫。”
+夫大笑，无以难。
+又一妻，悍而狡，夫每言及纳妾，辄曰：“尔家贫，安所得金买妾耶？若有金，唯命。”
+夫乃从人称贷得金，告其妻曰：“金在，请纳妾。”
+妻遂持其金纳袖中，拜曰：“我今情愿做小罢，这金便可买我。”
+夫无以难。
+</div>
