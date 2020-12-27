@@ -293,6 +293,12 @@ postgres[8765]=# table parted_child03 ;
 
 我们通过建立与分区表对于的表来进行复制，这样是可以到达复制的效果的，但是就丢失了分区表的关系。
 
+我们可以通过对订阅进行刷新来获取新加入的发布表的信息，如下所示。
+
+```
+ALTER SUBSCRIPTION my_parted_sub REFRESH PUBLICATION;
+```
+
 ### publish_via_partition_root (true)
 
 现在，我们来看看当设置了 `publish_via_partition_root`，逻辑复制时分区表是怎样表现的。首先，我们清理一下环境。
@@ -443,6 +449,7 @@ postgres[8765]=# TABLE parted_parent ;
 [1] https://www.postgresql.org/docs/13/sql-createpublication.html
 [2] https://www.postgresql.org/docs/13/sql-createsubscription.html
 [3] https://www.enterprisedb.com/postgres-tutorials/logical-replication-postgresql-explained
+[4] https://www.postgresql.org/docs/13/sql-altersubscription.html
 
 
 <div class="just-for-fun">
