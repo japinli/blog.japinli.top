@@ -9,23 +9,8 @@ tags:
 经过约八个月的努力，终于完成了 PostgreSQL 空闲会话超时断开的功能，该功能将在版本 14 中发布。这是我第一次向 PostgreSQL 提供功能，虽然之前也有向社区提供过补丁，但是这次整个功能（相对比较简单）被接受还是比较高兴的，感谢社区各位大佬的帮助和反馈。
 
 {% asset_img idle_session_timeout-commit-message.png %}
-```
-commit 9877374bef76ef03923f6aa8b955f2dbcbe6c2c7
-Author: Tom Lane <tgl@sss.pgh.pa.us>
-Date:   Wed Jan 6 18:28:42 2021 -0500
 
-    Add idle_session_timeout.
-
-    This GUC variable works much like idle_in_transaction_session_timeout,
-    in that it kills sessions that have waited too long for a new client
-    query.  But it applies when we're not in a transaction, rather than
-    when we are.
-
-    Li Japin, reviewed by David Johnston and Hayato Kuroda, some
-    fixes by me
-
-    Discussion: https://postgr.es/m/763A0689-F189-459E-946F-F0EC4458980B@hotmail.com
-```
+<!-- more -->
 
 ## 使用
 
