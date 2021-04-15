@@ -10,7 +10,7 @@ comments: false
 
 ## 技术
 
-* PostgreSQL
+* 《PostgreSQL 修炼之道-从小工到专家 第二版》（在读）
 
 {% endnote %}
 
@@ -18,6 +18,8 @@ comments: false
 
 ## 历史
 
-* [《资治通鉴》](http://www.guoxue.com/shibu/zztj/zztjml.htm)
+<!-- * [《资治通鉴》](http://www.guoxue.com/shibu/zztj/zztjml.htm) -->
+
+* 《东周列国志》（在读）
 
 {% endnote %}
