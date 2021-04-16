@@ -1,6 +1,6 @@
 ---
 title: "PostgreSQL 同步逻辑复制 TRUNCATE 表 hang 住"
-date: 2021-04-17 16:09:12 +0800
+date: 2021-04-16 23:09:12 +0800
 category: 数据库
 tags:
   - PostgreSQL
@@ -313,7 +313,7 @@ static TransactionId
 RecordTransactionCommit(void)
 {
 	... ...
-	
+
     if ((wrote_xlog && markXidCommitted &&
          synchronous_commit > SYNCHRONOUS_COMMIT_OFF) ||
         forceSyncCommit || nrels > 0)
@@ -349,9 +349,9 @@ RecordTransactionCommit(void)
         if (markXidCommitted)
             TransactionIdAsyncCommitTree(xid, nchildren, children, XactLastRecEnd);
     }
-	
+
 	... ...
-	
+
     /*
      * Wait for synchronous replication, if required. Similar to the decision
      * above about using committing asynchronously we only want to wait if
@@ -363,7 +363,7 @@ RecordTransactionCommit(void)
      */
     if (wrote_xlog && markXidCommitted)
         SyncRepWaitForLSN(XactLastRecEnd, true);
-		
+
 	... ...
 }
 ```
