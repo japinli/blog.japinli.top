@@ -397,7 +397,127 @@ index 29702d6eab..0ad59ef189 100644
         }
 ```
 
-`RelationGetIndexAttrBitmap()` 函数会被其他函数调用，因此这样修改可能会引起其他部分的问题，Amit Kapila 建议单独弄一个函数来实现该功能，目前补丁正在由 Takamichi Osumi 进行更新，后续 review 之后应该就会合并到 14 分支中，至于会不会 backpatch 到其他分支还有待后续，个人认为应该会做 backpatch。
+`RelationGetIndexAttrBitmap()` 函数会被其他函数调用，因此这样修改可能会引起其他部分的问题，Amit Kapila 建议单独弄一个函数来实现该功能，目前补丁正在由 Takamichi Osumi 进行更新，后续 review 之后应该就会合并到 14 分支中，至于会不会 backpatch 到其他分支还有待后续。
+
+## 2021-04-27 更新
+
+目前，代码以及合并到主分支了，并没有 backpatch 到其他分支，下面是 patch 的部分内容。
+
+```diff
+diff --git a/src/backend/replication/logical/proto.c b/src/backend/replication/logical/proto.c
+index 2a1f983..1cf59e0 100644
+--- a/src/backend/replication/logical/proto.c
++++ b/src/backend/replication/logical/proto.c
+@@ -668,8 +668,7 @@ logicalrep_write_attrs(StringInfo out, Relation rel)
+ 	/* fetch bitmap of REPLICATION IDENTITY attributes */
+ 	replidentfull = (rel->rd_rel->relreplident == REPLICA_IDENTITY_FULL);
+ 	if (!replidentfull)
+-		idattrs = RelationGetIndexAttrBitmap(rel,
+-											 INDEX_ATTR_BITMAP_IDENTITY_KEY);
++		idattrs = RelationGetIdentityKeyBitmap(rel);
+ 
+ 	/* send the attributes */
+ 	for (i = 0; i < desc->natts; i++)
+diff --git a/src/backend/utils/cache/relcache.c b/src/backend/utils/cache/relcache.c
+index 29702d6..316a256 100644
+--- a/src/backend/utils/cache/relcache.c
++++ b/src/backend/utils/cache/relcache.c
+@@ -5207,6 +5207,81 @@ restart:
+ }
+ 
+ /*
++ * RelationGetIdentityKeyBitmap -- get a bitmap of replica identity attribute
++ * numbers
++ *
++ * A bitmap of index attribute numbers for the configured replica identity
++ * index is returned.
++ *
++ * See also comments of RelationGetIndexAttrBitmap().
++ *
++ * This is a special purpose function used during logical replication. Here,
++ * unlike RelationGetIndexAttrBitmap(), we don't acquire a lock on the required
++ * index as we build the cache entry using a historic snapshot and all the
++ * later changes are absorbed while decoding WAL. Due to this reason, we don't
++ * need to retry here in case of a change in the set of indexes.
++ */
++Bitmapset *
++RelationGetIdentityKeyBitmap(Relation relation)
++{
++	Bitmapset  *idindexattrs = NULL;	/* columns in the replica identity */
++	List	   *indexoidlist;
++	Relation	indexDesc;
++	int			i;
++	MemoryContext oldcxt;
++
++	/* Quick exit if we already computed the result */
++	if (relation->rd_idattr != NULL)
++		return bms_copy(relation->rd_idattr);
++
++	/* Fast path if definitely no indexes */
++	if (!RelationGetForm(relation)->relhasindex)
++		return NULL;
++
++	/* Historic snapshot must be set. */
++	Assert(HistoricSnapshotActive());
++
++	indexoidlist = RelationGetIndexList(relation);
++
++	/* Fall out if no indexes (but relhasindex was set) */
++	if (indexoidlist == NIL)
++		return NULL;
++
++	/* Build attributes to idindexattrs by collecting attribute references */
++	indexDesc = RelationIdGetRelation(relation->rd_replidindex);
++	for (i = 0; i < indexDesc->rd_index->indnatts; i++)
++	{
++		int			attrnum = indexDesc->rd_index->indkey.values[i];
++
++		/*
++		 * We don't include non-key columns into idindexattrs bitmaps. See
++		 * RelationGetIndexAttrBitmap.
++		 */
++		if (attrnum != 0)
++		{
++			if (i < indexDesc->rd_index->indnkeyatts)
++				idindexattrs = bms_add_member(idindexattrs,
++											  attrnum - FirstLowInvalidHeapAttributeNumber);
++		}
++	}
++
++	RelationClose(indexDesc);
++	list_free(indexoidlist);
++
++	/* Don't leak the old values of these bitmaps, if any */
++	bms_free(relation->rd_idattr);
++	relation->rd_idattr = NULL;
++
++	/* Now save copy of the bitmap in the relcache entry */
++	oldcxt = MemoryContextSwitchTo(CacheMemoryContext);
++	relation->rd_idattr = bms_copy(idindexattrs);
++	MemoryContextSwitchTo(oldcxt);
++
++	/* We return our original working copy for caller to play with */
++	return idindexattrs;
++}
++
++/*
+  * RelationGetExclusionInfo -- get info about index's exclusion constraint
+  *
+  * This should be called only for an index that is known to have an
+diff --git a/src/include/utils/relcache.h b/src/include/utils/relcache.h
+index 2fcdf79..f772855 100644
+--- a/src/include/utils/relcache.h
++++ b/src/include/utils/relcache.h
+@@ -65,6 +65,8 @@ typedef enum IndexAttrBitmapKind
+ extern Bitmapset *RelationGetIndexAttrBitmap(Relation relation,
+ 											 IndexAttrBitmapKind attrKind);
+ 
++extern Bitmapset *RelationGetIdentityKeyBitmap(Relation relation);
++
+ extern void RelationGetExclusionInfo(Relation indexRelation,
+ 									 Oid **operators,
+ 									 Oid **procs,
+```
 
 ## 总结
 
