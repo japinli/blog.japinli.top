@@ -83,7 +83,6 @@ creative_commons:
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
-  hots: /hots/ || fa fa-signal
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
@@ -612,7 +611,7 @@ changyan:
 # Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
-  enable: true
+  enable: false
   appId: rwarexb07A58sdb9Xp5RyQRw-gzGzoHsz # Your leancloud application appid
   appKey: zPiGgSOJ5I1qJMAVXWBgRWe6 # Your leancloud application appkey
   placeholder: Just go go # Comment box placeholder
