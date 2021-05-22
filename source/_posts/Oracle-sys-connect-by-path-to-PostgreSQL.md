@@ -11,7 +11,7 @@ tags:
 
 函数 `sys_connect_by_path()` 通常是与 Oracle 中的 `connect by` 子句一起使用的，而 `connect by` 子句转换到 PostgreSQL 中时通常是使用 `WITH RECUSIVE` 来实现。
 
-
+<!-- more -->
 
 ## 最小示例
 
