@@ -21,7 +21,7 @@ comments: false
 
 ## 课程
 
-* [SQL 进阶教程]()（进行中...）
+* [SQL 进阶教程](https://www.bilibili.com/video/BV1UE41147KC)（进行中...）
 
 {% endnote %}
 
@@ -36,7 +36,6 @@ comments: false
 
 {% endnote %}
 
-[SQL 进阶教程]: https://jinnsjj.github.io/uncategorized/hexo-next-note/
 
 <!--
 default
