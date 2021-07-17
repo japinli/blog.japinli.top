@@ -11,7 +11,7 @@ comments: false
 ## 技术
 
 * 《PostgreSQL 修炼之道-从小工到专家 第二版》（在读）
-* 《由浅入深 PostgreSQL》（在读）
+* 《由浅入深 PostgreSQL》（已读）
 * 《Go 语言实战》（已读）
 * 《算法图解》（已读）
 
