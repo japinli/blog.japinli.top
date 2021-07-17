@@ -247,10 +247,10 @@ read_more_btn: true
 # Post meta display settings
 post_meta:
   item_text: false
-  created_at: false
+  created_at: true
   updated_at:
-    enable: true
-    another_day: true
+    enable: false
+    another_day: false
   categories: true
 
 # Post wordcount display settings
