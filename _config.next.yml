@@ -87,6 +87,7 @@ menu:
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   reading: /reading/ || fa fa-book
+  tools: /tools/ || fa fa-cog
   about: /about/ || fa fa-user
   #schedule: /schedule/ || fa fa-calendar
   links: /links/ || fa fa-link
