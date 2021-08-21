@@ -113,3 +113,10 @@ __空间复杂度：__ `O(1)`
 ## 译者著
 
 该算法来自于 [MJRTY - A Fast Majority Vote Algorithm](https://www.cs.ou.edu/~rlpage/dmtools/mjrty.pdf) 论文。您可以在[这里](https://www.cs.utexas.edu/~moore/best-ideas/mjrty/index.html)看到算法的演示。
+
+<div class="just-for-fun">
+笑林广记 - 不明
+
+一官断事不明，惟好酒怠政，贪财酷民。
+百姓怨恨，乃作诗以诮之云：“黑漆皮灯笼，半天萤火虫，粉墙画白虎，黄纸写乌龙，茄子敲泥磬，冬瓜撞木钟，唯知钱与酒，不管正和公。”
+</div>
