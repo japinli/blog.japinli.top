@@ -165,7 +165,7 @@ postgres[8765]=# CREATE TABLE parted_parent (a integer, b integer) PARTITION BY 
 CREATE TABLE
 postgres[8765]=# CREATE TABLE parted_child01 PARTITION OF parted_parent FOR VALUES FROM (1) TO (10);
 CREATE TABLE
-postgres[5432]=# CREATE TABLE parted_child02 PARTITION OF parted_parent FOR VALUES FROM (10) TO (20);
+postgres[8765]=# CREATE TABLE parted_child02 PARTITION OF parted_parent FOR VALUES FROM (10) TO (20);
 CREATE TABLE
 postgres[8765]=# CREATE SUBSCRIPTION my_parted_sub CONNECTION 'host=localhost port=5432 dbname=postgres' PUBLICATION my_parted_pub;
 NOTICE:  created replication slot "my_parted_sub" on publisher
@@ -443,6 +443,10 @@ postgres[8765]=# TABLE parted_parent ;
 ## Tips
 
 上面的 psql 提示符是通过命令 `\set PROMPT1 '%/[%>]=%# '` 进行更改的，其中 `%/` 表示当前数据库，`%>` 表示监听的端口，`%#` 表示用户权限，您可以[参考 psql 文档获取更多的信息](https://www.postgresql.org/docs/12/app-psql.html)。
+
+## 更新
+
+* 2021-08-23 - 感谢熊灿灿指出本文中的 BUG，在 `publish_via_partition_root (false)` 中第一个代码段中第 16 行端口错误，原为 `5432`，应更正为 `8765`。
 
 ## 参考
 

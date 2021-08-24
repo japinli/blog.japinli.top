@@ -8,7 +8,7 @@ tags:
   - 迁移
 ---
 
-最近在工作中越到 Oracle DES 加解密迁移到 PostgreSQL 中的问题，本文简要记录一下这个问题的解决过程。
+最近在工作中遇到了 Oracle DES 加解密迁移到 PostgreSQL 中的问题，本文简要记录一下这个问题的解决过程。
 
 <!-- more ->
 
