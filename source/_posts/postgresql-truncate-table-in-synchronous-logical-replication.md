@@ -401,7 +401,7 @@ index 29702d6eab..0ad59ef189 100644
 
 ## 2021-04-27 更新
 
-目前，代码以及合并到主分支了，并没有 backpatch 到其他分支，下面是 patch 的部分内容。
+目前，代码已经合并到主分支，并没有 backpatch 到其他分支，下面是 patch 的部分内容。
 
 ```diff
 diff --git a/src/backend/replication/logical/proto.c b/src/backend/replication/logical/proto.c
