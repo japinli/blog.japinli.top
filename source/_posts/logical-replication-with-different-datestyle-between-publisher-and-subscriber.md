@@ -33,8 +33,8 @@ postgres[6789]=# CREATE TABLE tbl (a date);
 CREATE TABLE
 postgres[6789]=# INSERT INTO tbl values ('10-17-2021'), ('10-18-2021');
 INSERT 0 2
-postgres[6789]=# INSERT INTO tbl values ('10-17-2021'), ('10-18-2021');
-INSERT 0 2
+postgres[6789]=# CREATE PUBLICATION pub FOR TABLE tbl ;
+CREATE PUBLICATION
 postgres[6789]=# table tbl;
      a
 ------------
