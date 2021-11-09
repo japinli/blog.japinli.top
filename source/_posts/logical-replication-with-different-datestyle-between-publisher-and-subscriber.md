@@ -224,6 +224,53 @@ index baa4a90771..a88a61df41 100644
 +$node_subscriber->stop('fast');
 ```
 
+## 更新
+
+在我最初的 patch 中是通过 `libpqrcv_PQexec()` 去修改参数，这实际上会导致网络的开销，为了避免这一点，有两种解决方案：
+1. 在 walsender 端设置 `datestyle`，`intervalstyle` 和 `extra_float_digts`。
+2. 在 walreceiver 端设置 `datestyle`，`intervalstyle` 和 `extra_float_digts`。
+
+在 walsender 端设置可能导致现有的一些插件无法正常使用，经过讨论，大部分都接受在 walreceiver 端进行设置。该 patch 于 2021 年 11 月 2 日的时候合并到主分支，合并的 patch 如下所示：
+
+```diff
+diff --git a/src/backend/replication/libpqwalreceiver/libpqwalreceiver.c b/src/backend/replication/libpqwalreceiver/libpqwalreceiver.c
+index 5c6e56a5b2..c08e599eef 100644
+--- a/src/backend/replication/libpqwalreceiver/libpqwalreceiver.c
++++ b/src/backend/replication/libpqwalreceiver/libpqwalreceiver.c
+@@ -128,8 +128,8 @@ libpqrcv_connect(const char *conninfo, bool logical, const char *appname,
+ {
+        WalReceiverConn *conn;
+        PostgresPollingStatusType status;
+-       const char *keys[5];
+-       const char *vals[5];
++       const char *keys[6];
++       const char *vals[6];
+        int                     i = 0;
+
+        /*
+@@ -153,8 +153,20 @@ libpqrcv_connect(const char *conninfo, bool logical, const char *appname,
+        vals[i] = appname;
+        if (logical)
+        {
++               /* Tell the publisher to translate to our encoding */
+                keys[++i] = "client_encoding";
+                vals[i] = GetDatabaseEncodingName();
++
++               /*
++                * Force assorted GUC parameters to settings that ensure that the
++                * publisher will output data values in a form that is unambiguous to
++                * the subscriber.  (We don't want to modify the subscriber's GUC
++                * settings, since that might surprise user-defined code running in
++                * the subscriber, such as triggers.)  This should match what pg_dump
++                * does.
++                */
++               keys[++i] = "options";
++               vals[i] = "-c datestyle=ISO -c intervalstyle=postgres -c extra_float_digits=3";
+        }
+        keys[++i] = NULL;
+        vals[i] = NULL;
+```
+
 ## 参考
 
 [1] https://www.postgresql.org/message-id/CAFF0-CF=D7pc6st-3A9f1JnOt0qmc+BcBPVzD6fLYisKyAjkGA@mail.gmail.com
