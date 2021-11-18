@@ -34,7 +34,7 @@ CREATE OR REPLACE PROCEDURE send_email(
     title       varchar,
     content     varchar,
     filenames   varchar,
-    smtp_user   varchar default 'your-email@hotmail.com',
+    smtp_user   varchar default 'japinli@hotmail.com',
     smtp_passwd varchar default 'your-password',
     smtp_server varchar default 'outlook.office365.com',
     smtp_port   int default 587)
@@ -80,7 +80,11 @@ except Exception as e:
 $$ LANGUAGE plpython3u;
 ```
 
-您可以将上面的存储过程导入到已经安装了 plpython3u 插件的数据库中（注意，您需要修改邮件服务器和用户信息），随后执行下面的命令进行测试。
+您可以将上面的存储过程导入到已经安装了 plpython3u 插件的数据库中（注意，您需要修改邮件服务器和用户信息）。
+
+## 测试
+
+我们可以使用下面的命令进行测试。
 
 ```sql
 call send_email(
