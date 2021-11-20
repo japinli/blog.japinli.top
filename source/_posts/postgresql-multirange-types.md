@@ -4,7 +4,7 @@ date: 2021-10-16 19:38:14 +0800
 category: 数据库
 tags:
   - PostgreSQL
-  - 翻译[]
+  - 翻译
 ---
 
 在最近发布的 PostgreSQL 14 中，我们最兴奋的功能之一是引入了 multirange 类型。简而言之，multirange 类型是一组不重叠的范围（range）。与范围数组不同，它们防止重叠，因此允许你有效地建立有间隙的范围模型。

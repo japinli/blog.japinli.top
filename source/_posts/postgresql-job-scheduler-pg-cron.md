@@ -271,7 +271,7 @@ postgres=# SELECT * FROM cron.job;
 
 ## 进阶
 
-在了解了 pg_cron 的基本使用之后，我们来看看其他的一些使用，我们首先创建一个用户和数据库，并切换到改数据库。
+在了解了 pg_cron 的基本使用之后，我们来看看其他的一些使用，我们首先创建一个用户和数据库，并切换到该数据库。
 
 ```sql
 postgres=# CREATE USER japin WITH ENCRYPTED PASSWORD 'japin';
@@ -295,17 +295,19 @@ END;
 $body$ LANGUAGE plpgsql;
 ```
 
-接着我们切换到超级用户并执行下面的语句，他就为 `testdb` 创建一个 job。
+接着我们切回到超级用户并执行下面的语句，它将为 `testdb` 创建一个 job。
 
 ```sql
 SELECT cron.schedule_in_database(
     'testdb_job1',
 	'*/1 * * * *',
 	'SELECT testdb_insert_log_job()',
-	'testdb',
-	'japin',
+	'testdb', -- 指定目标数据库
+	'japin',  -- 指定登录目标数据库的用户
 	true);
 ```
+
+**注意：**pg_cron 是通过 libpq 连接到目标数据库上去执行任务的，因此我们指定的用户需要在目标数据库上有足够的权限执行 job 指定的任务。因此您可能需要配置 `pg_hba.conf` 文件以及 `~/.pgpass` 文件中提供连接信息。
 
 我们同样可以通过 `cron.job` 表查看 job 的信息，以及 `cron.job_run_details` 查看运行状态。
 
@@ -352,8 +354,6 @@ testdb=> SELECT * FROM log;
  hello, testdb | 2021-11-18 23:41:00.029197
 (2 rows)
 ```
-
-**注意：**在为其他数据创建 job 时，我们需要保证其能连接到相应的数据库，并且连接的用户有权限执行函数。因此您可能需要配置 pg_hba.conf 文件或者在 `~/.pgpass` 文件中提供连接信息。
 
 ## 参考
 
