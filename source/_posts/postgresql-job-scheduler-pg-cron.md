@@ -355,6 +355,8 @@ testdb=> SELECT * FROM log;
 (2 rows)
 ```
 
+最后，还需要主要的是，pg_cron 的定时时间是基于 GMT 的，因此，您可能需要换算时区。
+
 ## 参考
 
 [1] https://github.com/citusdata/pg_cron
