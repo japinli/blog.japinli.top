@@ -10,6 +10,8 @@ tags:
 
 最近在迁移 Oracle 数据库到 PostgreSQL 时遇到了 PostgreSQL 中调用存储过程异常的情况。本文简要记录以下定位及其修复过程。
 
+<!--more-->
+
 ## 问题
 
 在将 Oracle 中的存储过程迁移到 PostgreSQL 中，我们遇到了一个如下的存储过程（经过了简化）：
