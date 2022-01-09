@@ -345,7 +345,7 @@ index 867318002b..7b7824b717 100644
 
 **备注：**上面的 diff 文件中末尾的空白被移除了，因此不能直接用，您需要在[这里](https://www.postgresql.org/message-id/attachment/129615/fix-btree_gist-bpchar-trimming.patch)获取 patch 文件。
 
-目前，该 patch 还未合并到主分支，尚待验证。
+~目前，该 patch 还未合并到主分支，尚待验证。~ 2022 年 01 月 08 日已被合并到主分支，并 back-patch 回所有支持的分支。
 
 ## 参考
 
