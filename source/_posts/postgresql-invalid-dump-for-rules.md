@@ -31,6 +31,8 @@ tags:
 
 	    Discussion: https://postgr.es/m/efaba6f9-4190-56be-8ff2-7a1674f9194f@intrans.baku.az
 
+<!--more-->
+
 ## 现象
 
 首先我们创建两张表和一条规则，如下所示。
