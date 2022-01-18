@@ -89,6 +89,34 @@ $ cat $PGDATA/log/postgresql-2022-01-17_222830.json | jq
 }
 ```
 
+我们可以结合 `jq` 的命令选项来快速查找日志信息，如下所示：
+
+```shell
+$ jq 'select(.error_severity == "ERROR")' $PGDATA/log/postgresql-2022-01-18_121035.json
+{
+  "timestamp": "2022-01-18 12:17:48.640 CST",
+  "user": "px",
+  "dbname": "postgres",
+  "pid": 1944761,
+  "remote_host": "[local]",
+  "session_id": "61e63dbd.1dacb9",
+  "line_num": 1,
+  "ps": "DROP TABLE",
+  "session_start": "2022-01-18 12:10:37 CST",
+  "vxid": "3/4",
+  "txid": 0,
+  "error_severity": "ERROR",
+  "state_code": "42P01",
+  "message": "table \"t\" does not exist",
+  "statement": "drop table t;",
+  "application_name": "psql",
+  "backend_type": "client backend",
+  "query_id": 0
+}
+```
+
+上面的命令通过 `jq` 的 `select` 来查看日志级别为 `ERROR` 的日志信息。您还可以定制更为详细、精准的过滤条件。
+
 ## 说明
 
 PostgreSQL 中 `jsonlog` 可以包含以下字段：
