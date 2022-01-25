@@ -60,5 +60,8 @@ MIIG5AIBAAKCAYEArwZXd5mI3XeOynhMIFWbRX1HoDWvXXO0C...
 [1] https://federicofr.wordpress.com/2019/01/02/how-to-convert-openssh-private-keys-to-rsa-pem/
 
 <div class="just-for-fun">
-笑林广记 -
+笑林广记 - 坐监
+
+一监生妻屡劝其夫读书，因假寓于寺中，素无书箱，乃唤脚夫以罗担挑书先往。
+脚夫中途疲甚，身坐担上，适生至，闻傍人语所坐《通鉴》，因怒责脚夫，夫谢罪曰：“小人因为不识字，一时坐了鉴（监），弗怪弗怪。”
 </div>
