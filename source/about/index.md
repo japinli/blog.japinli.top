@@ -36,6 +36,7 @@ toc:
 * [crontab guru](https://crontab.guru/) - 用于 cron 计划表达式的快速简单的在线编辑器。
 * [Compiler Explorer](https://godbolt.org/) - 一个在线的交互式编译器，可以展示 C++, Rust，Go 以及其他代码的汇编语言。
 * [Real Favicon Generator](https://realfavicongenerator.net/) - Favicon 生成器。
+* [PlantText](https://www.planttext.com/) - [PlantUML](https://plantuml.com/) 在线绘图工具。
 
 {% endnote %}
 
