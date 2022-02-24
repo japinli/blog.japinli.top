@@ -1,5 +1,5 @@
 ---
-title: postgresql 索引扫描排序运算符
+title: "PostgreSQL 索引扫描排序运算符"
 date: 2022-01-23 14:15:10 +0800
 categories: 数据库
 tags:
