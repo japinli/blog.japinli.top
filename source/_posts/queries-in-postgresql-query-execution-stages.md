@@ -10,14 +10,14 @@ tags:
 您好！我正在开始另一个关于 PostgreSQL 内部的文章系列。这一篇将侧重于查询计划和执行机制。本系列将涵盖：
 
 1. 查询执行阶段（本文）
-2. 统计信息
+2. {% post_link queries-in-postgresql-statistics 统计信息 %}
 3. 顺序扫描
 4. 索引扫描
 5. 嵌套循环连接
 6. Hash 连接
 7. 归并连接
 
-文借鉴了我们的 [QPT 查询优化](https://postgrespro.ru/education/courses/QPT)课程（即将推出英文版），但主要关注查询执行的内部机制，而将优化方面放在一边。另请注意，本系列文章是针对 PostgreSQL 14 编写的。
+本文借鉴了我们的 [QPT 查询优化](https://postgrespro.ru/education/courses/QPT)课程（即将推出英文版），但主要关注查询执行的内部机制，而将优化方面放在一边。另请注意，本系列文章是针对 PostgreSQL 14 编写的。
 
 <!--more-->
 
