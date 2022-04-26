@@ -5,6 +5,7 @@ categories: 数据库
 tags:
   - PostgreSQL
   - 翻译
+  - PG Casts
 ---
 
 在 PostgreSQL 中生成 JSON 的速度可能是将关系数据复制到应用程序，随后通过应用程序生成 JSON 的几倍。这对于返回 JSON 的 API 尤其有用。
