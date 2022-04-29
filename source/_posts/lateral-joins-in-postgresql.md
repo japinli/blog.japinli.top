@@ -272,7 +272,7 @@ INSERT INTO activities (developer_id, event_type)
 
 ## 译者著
 
-本文翻译自 [PG Casts](https://www.pgcasts.com/) 的第六集 [Generating JSON from SQL](https://www.pgcasts.com/episodes/lateral-joins)。
+本文翻译自 [PG Casts](https://www.pgcasts.com/) 的第六集 [Lateral Joins](https://www.pgcasts.com/episodes/lateral-joins)。
 
 <div class="just-for-fun">
 笑林广记 - 吃乳饼
