@@ -227,8 +227,8 @@ index baa4a90771..a88a61df41 100644
 ## 更新
 
 在我最初的 patch 中是通过 `libpqrcv_PQexec()` 去修改参数，这实际上会导致网络的开销，为了避免这一点，有两种解决方案：
-1. 在 walsender 端设置 `datestyle`，`intervalstyle` 和 `extra_float_digts`。
-2. 在 walreceiver 端设置 `datestyle`，`intervalstyle` 和 `extra_float_digts`。
+1. 在 walsender 端设置 `datestyle`，`intervalstyle` 和 `extra_float_digits`。
+2. 在 walreceiver 端设置 `datestyle`，`intervalstyle` 和 `extra_float_digits`。
 
 在 walsender 端设置可能导致现有的一些插件无法正常使用，经过讨论，大部分都接受在 walreceiver 端进行设置。该 patch 于 2021 年 11 月 2 日的时候合并到主分支，合并的 patch 如下所示：
 
