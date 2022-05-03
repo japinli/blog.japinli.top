@@ -1,5 +1,5 @@
 ---
-title: "PostgreSQL 中的 Lateral Joins"
+title: "【译】PostgreSQL 中的 Lateral Joins"
 date: 2022-04-29 20:29:51 +0800
 categories: 数据库
 tags:
