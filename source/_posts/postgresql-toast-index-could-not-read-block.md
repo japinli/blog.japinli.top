@@ -29,7 +29,7 @@ postgres=# SELECT oid, relname, relkind FROM pg_class WHERE relfilenode = 229401
 (1 row)
 ```
 
-从上面的结果我们可以推测出 `2294016` 是索引 `pg_toast_2619_index` 的物理存储文件，而改索引是 TOAST 表的索引，并且这个 TOAST 表对应的基表的 OID 为 2619。
+从上面的结果我们可以推测出 `2294016` 是索引 `pg_toast_2619_index` 的物理存储文件，而该索引是 TOAST 表的索引，并且这个 TOAST 表对应的基表的 OID 为 2619。
 
 ```sql
 postgres=# SELECT
