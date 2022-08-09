@@ -6,7 +6,7 @@ tags:
   - PostgreSQL
 ---
 
-在{% post_link postgresql-parameters-for-database-and-role 上一篇 %}文章中介绍了如何修改用户或数据库级别的参数，已经它们的存储位置（`pg_db_role_setting` 系统表），本文简要说明一下关于这里的参数配置不当，从而导致无法连接数据库的问题。
+在{% post_link postgresql-parameters-for-database-and-role 上一篇 %}文章中介绍了如何修改用户或数据库级别的参数，以及它们的存储位置（`pg_db_role_setting` 系统表），本文简要说明一下关于这里的参数配置不当，从而导致无法连接数据库的问题。
 
 <!--more-->
 
@@ -198,7 +198,7 @@ InitPostgres(const char *in_dbname, Oid dboid,
     /* Process pg_db_role_setting options */
     process_settings(MyDatabaseId, GetSessionUserId());
 
-    [....]
+    [...]
 
 	/*
      * If this is an interactive session, load any libraries that should be
