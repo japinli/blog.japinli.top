@@ -189,7 +189,7 @@ exec_simple_query
 
 如果我们执行 [`CHECKPOINT`](https://github.com/postgres/postgres/blob/REL_14_5/src/backend/access/transam/xact.c#L2069)，那么我们在 `$PGDATA/pg_subtrans` 目录下可以看到上述子事务的相关信息。
 
-```bash
+<!--
 $ hexdump -C 0000
 00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
 *
@@ -201,7 +201,9 @@ $ hexdump -C 0000
 00000bd0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
 *
 00002000
-```
+-->
+
+{% asset_img subtrans-page-dump.png %}
 
 `0x00000bc8` 对应的事务 ID 为 `int(0xbc8) / 4 = 754`，而他的父事务 ID 为 `0x02ee = 750`，750 事务在 0 号页面的 `hex(750 * 4) = 0xbb8`，全为 0，因此，事务 750 是主事务，这与上面的实际情况一致。
 
@@ -216,5 +218,8 @@ $ hexdump -C 0000
 [5] https://github.com/postgres/postgres/tree/REL_14_5
 
 <div class="just-for-fun">
-笑林广记 -
+笑林广记 - 薑字塔
+
+一富翁问“薑”字如何写，对以草字头，次一字，次田字，又一字，又田字，又一字。
+其人写草壹田壹田壹，写讫玩之，骂曰：“天杀的，如何诳我，分明作耍我造成一座塔了。”
 </div>
