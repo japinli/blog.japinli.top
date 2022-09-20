@@ -10,7 +10,7 @@ tags:
 
 <!-- more -->
 
-## 解决方法
+## 方法一
 
 gtags 默认提供了一个配置文件，我们可以通过这个配置文件来进行定制。为了不影响其他用户，建议拷贝到各自用户的家目录下进行设置，如下所示。
 
@@ -32,9 +32,25 @@ common:\
 
 该项使用逗号作为分隔符，支持正则表达式。
 
+## 方法二
+
+上述方法稍微复杂，针对不同的项目，配置起来比较繁琐，最近在看到 [Peter Eisentraut](http://peter.eisentraut.org) 关于 [PostgreSQL 中使用 GNU Global 的文章](http://peter.eisentraut.org/blog/2016/07/20/using-gnu-global-with-postgresql)之后，才发现原来还可以这样优雅的解决。
+
+```bash
+$ git ls-files > gtags.files  # Git 托管的源码目录
+$ gtags
+```
+
+我们利用 git 的特性来获取到所有的文件，然后将其保存到 `gtags.files` 文件中，随后在执行 `gtags` 命令来生成符号信息。这种方式也存在一些缺点：
+
+1. 它不能为自动生成的文件提供导航；
+2. 每次拉取新代码时，都需要重复执行 `git ls-files > gtags.files && gtags` 命令；
+3. 新增的文件（尚未纳入 git 托管）同样不能提供导航。
+
 ## 参考
 
 [1] https://stackoverflow.com/questions/42315741/how-gtags-exclude-some-specific-subdirectories
+[2] http://peter.eisentraut.org/blog/2016/07/20/using-gnu-global-with-postgresql
 
 
 <div class="just-for-fun">
