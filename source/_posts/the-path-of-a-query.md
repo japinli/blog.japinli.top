@@ -4,7 +4,7 @@ date: 2021-11-21 17:09:42 +0800
 categories: 数据库
 tags:
   - PostgreSQL
-  - 源码
+  - 源码分析
 ---
 
 在 PostgreSQL 中，查询一般会经历以下几个阶段：
