@@ -19,7 +19,7 @@
     "hexo-generator-index": "^2.0.0",
     "hexo-generator-searchdb": "^1.4.0",
     "hexo-generator-sitemap": "^2.1.0",
-    "hexo-generator-tag": "^1.0.0",
+    "hexo-generator-tag": "^2.0.0",
     "hexo-related-popular-posts": "git+https://github.com/tea3/hexo-related-popular-posts.git",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^4.0.0",
