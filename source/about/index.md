@@ -29,6 +29,16 @@ toc:
 
 {% endnote %}
 
+{% note danger %}
+
+## 演讲稿
+
+* [2022-10-22 - 如何参与 PostgreSQL 贡献](./files/2022-10-22.How.to.Contribute.PostgreSQL.pdf)
+
+{% endnote %}
+
+
+
 {% note info %}
 
 ## 在线工具
@@ -55,3 +65,84 @@ toc:
 * [x] 2020-08-23 - 博客主题升级到 NexT (v8.0.0-rc.5) 。
 
 {% endnote %}
+
+<!--
+* Ubuntu PostgreSQL
+
+#+begin_src bash
+  sudo apt-get install vim emacs git tmux
+  sudo apt-get install global gdb silversearcher-ag
+  sudo apt-get install build-essential
+  sudo apt-get install clangd-12 clang-12
+  sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+  sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100
+  sudo update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-12 100
+  sudo apt-get install pkg-config bison flex
+  sudo apt-get install libreadline-dev zlib1g-dev
+
+  sudo apt-get install libicu-dev      # --with-icu
+  sudo apt-get install libkrb5-dev     # --with-gssapi
+  sudo apt-get install libssl-dev      # --with-openssl
+  sudo apt-get install  libldap2-dev   # --with-ldap
+  sudo apt-get install libxml2-dev     # --with-libxml
+  sudo apt-get install libxslt1-dev    # --with-libxslt
+  sudo apt-get install libpam0g-dev    # --with-pam
+  sudo apt-get install libselinux1-dev # --with-selinux
+  sudo apt-get install uuid-dev        # --with-uuid=e2fs
+  sudo apt-get install libsystemd-dev  # --with-systemd
+  sudo apt-get install gettext         # --enable-nls
+  sudo apt-get install libperl-dev     # --with-perl
+  sudo apt-get install libpython3-dev  # --with-python
+#+end_src
+
+#+begin_src bash
+  $ cpan    # --enable-tap-tests
+  cpan[1]> install IPC::Run
+#+end_src
+
+* CentOS
+
+#+begin_src bash
+  sudo yum install -y centos-release-scl
+  sudo yum install -y devtoolset-11
+  sudo yum install -y git
+
+  sudo yum install -y zlib-devel.x86_64
+  sudo yum install -y readline-devel.x86_64
+
+  sudo yum install -y devtoolset-11-systemtap-sdt-devel  # --enable-dtrace
+  sudo yum install -y krb5-devel.x86_64                  # --with-gssapi
+  sudo yum install -y libicu-devel                       # --with-icu
+  sudo yum install -y libuuid-devel.x86_64               # --with-uuid=e2fs
+  sudo yum install -y libxml2-devel.x86_64               # --with-libxml
+  sudo yum install -y libxslt-devel.x86_64               # --with-libxslt
+  sudo yum install -y llvm-toolset-7-llvm-devel.x86_64   # --with-llvm
+  sudo yum install -y llvm-toolset-7.0-llvm-devel.x86_64
+  sudo yum install -y llvm-toolset-7.0.x86_64            # --with-llvm
+  sudo yum install -y lz4-devel.x86_64                   # --wit-lz4
+  sudo yum install -y openldap-devel.x86_64              # --with-ldap
+  sudo yum install -y openssl-devel.x86_64               # --with-openssl
+  sudo yum install -y pam-devel.x86_64                   # --with-pam
+  sudo yum install -y python3-devel.x86_64               # --with-python
+  sudo yum install -y systemd-devel.x86_64               # --with-systemd
+
+  # regression test
+  sudo yum install -y perl-Test-Harness-3.28-3.el7.noarch
+  sudo yum install -y perl-tests.x86_64
+  sudo yum install -y perl-IPC-Run.noarch
+
+  # make a RPM package
+  sudo yum install -y rpmdevtools.noarch
+#+end_src
+
+#+begin_src bash
+$ cpan
+cpan[1]> install IPC::Run
+#+end_src
+
+#+begin_src bash
+  sudo yum -y remove git
+  sudo yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
+  sudo yum -y install git
+#+end_src
+-->
