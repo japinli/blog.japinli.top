@@ -80,10 +80,11 @@ toc:
   sudo apt-get install pkg-config bison flex
   sudo apt-get install libreadline-dev zlib1g-dev
 
+  sudo apt-get install libipc-run-perl # --enable-tap-tests
   sudo apt-get install libicu-dev      # --with-icu
   sudo apt-get install libkrb5-dev     # --with-gssapi
   sudo apt-get install libssl-dev      # --with-openssl
-  sudo apt-get install  libldap2-dev   # --with-ldap
+  sudo apt-get install libldap2-dev   # --with-ldap
   sudo apt-get install libxml2-dev     # --with-libxml
   sudo apt-get install libxslt1-dev    # --with-libxslt
   sudo apt-get install libpam0g-dev    # --with-pam
@@ -94,6 +95,8 @@ toc:
   sudo apt-get install libperl-dev     # --with-perl
   sudo apt-get install libpython3-dev  # --with-python
 #+end_src
+
+Or, you can use the following command to install IPC::Run.
 
 #+begin_src bash
   $ cpan    # --enable-tap-tests
