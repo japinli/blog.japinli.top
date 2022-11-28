@@ -70,30 +70,31 @@ toc:
 * Ubuntu PostgreSQL
 
 #+begin_src bash
-  sudo apt-get install vim emacs git tmux
-  sudo apt-get install global gdb silversearcher-ag
-  sudo apt-get install build-essential
-  sudo apt-get install clangd-12 clang-12
+  sudo apt-get install -y vim emacs git tmux
+  sudo apt-get install -y global gdb silversearcher-ag
+  sudo apt-get install -y build-essential
+  sudo apt-get install -y clangd-12 clang-12
   sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
   sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100
   sudo update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-12 100
-  sudo apt-get install pkg-config bison flex
-  sudo apt-get install libreadline-dev zlib1g-dev
+  sudo apt-get install -y pkg-config bison flex
+  sudo apt-get install -y zlib1g-dev
+  sudo apt-get install -y libreadline-dev
 
-  sudo apt-get install libipc-run-perl # --enable-tap-tests
-  sudo apt-get install libicu-dev      # --with-icu
-  sudo apt-get install libkrb5-dev     # --with-gssapi
-  sudo apt-get install libssl-dev      # --with-openssl
-  sudo apt-get install libldap2-dev   # --with-ldap
-  sudo apt-get install libxml2-dev     # --with-libxml
-  sudo apt-get install libxslt1-dev    # --with-libxslt
-  sudo apt-get install libpam0g-dev    # --with-pam
-  sudo apt-get install libselinux1-dev # --with-selinux
-  sudo apt-get install uuid-dev        # --with-uuid=e2fs
-  sudo apt-get install libsystemd-dev  # --with-systemd
-  sudo apt-get install gettext         # --enable-nls
-  sudo apt-get install libperl-dev     # --with-perl
-  sudo apt-get install libpython3-dev  # --with-python
+  sudo apt-get install -y libipc-run-perl # --enable-tap-tests
+  sudo apt-get install -y libicu-dev      # --with-icu
+  sudo apt-get install -y libkrb5-dev     # --with-gssapi
+  sudo apt-get install -y libssl-dev      # --with-openssl
+  sudo apt-get install -y libldap2-dev    # --with-ldap
+  sudo apt-get install -y libxml2-dev     # --with-libxml
+  sudo apt-get install -y libxslt1-dev    # --with-libxslt
+  sudo apt-get install -y libpam0g-dev    # --with-pam
+  sudo apt-get install -y libselinux1-dev # --with-selinux
+  sudo apt-get install -y uuid-dev        # --with-uuid=e2fs
+  sudo apt-get install -y libsystemd-dev  # --with-systemd
+  sudo apt-get install -y gettext         # --enable-nls
+  sudo apt-get install -y libperl-dev     # --with-perl
+  sudo apt-get install -y libpython3-dev  # --with-python
 #+end_src
 
 Or, you can use the following command to install IPC::Run.
