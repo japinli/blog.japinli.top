@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL 子事务日志管理器"
 date: 2022-09-14 21:16:18 +0800
-categories: Database
+categories: 数据库
 tags:
   - PostgreSQL
 ---
