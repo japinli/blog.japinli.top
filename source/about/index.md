@@ -81,6 +81,7 @@ toc:
   sudo apt-get install -y zlib1g-dev
   sudo apt-get install -y libreadline-dev
 
+  sudo apt-get install -y systemtap-sdt-dev # --enable-dtrace
   sudo apt-get install -y libipc-run-perl # --enable-tap-tests
   sudo apt-get install -y libicu-dev      # --with-icu
   sudo apt-get install -y libkrb5-dev     # --with-gssapi
