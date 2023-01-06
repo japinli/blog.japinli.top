@@ -595,7 +595,11 @@ Total time (s) 11
 [SystemTap]: https://sourceware.org/systemtap/
 
 <div class="just-for-fun">
-笑林广记 -
+笑林广记 - 讳聋哑
+
+聋、哑二人各欲自讳。
+一日聋见哑者，恳其唱曲，哑者知其聋也，乃以嘴唇开合而手拍板作按节状，聋者侧听良久。
+见其唇住即大赞曰：“妙绝妙绝，许久不听佳音，今日一发更进了。”
 </div>
 
 <!--
