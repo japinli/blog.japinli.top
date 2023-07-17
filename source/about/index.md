@@ -131,6 +131,9 @@ Or, you can use the following command to install IPC::Run.
   sudo yum install -y python3-devel.x86_64               # --with-python
   sudo yum install -y systemd-devel.x86_64               # --with-systemd
 
+  yum install epel-release
+  sudo yum install -y libzstd-devel
+
   # regression test
   sudo yum install -y perl-Test-Harness-3.28-3.el7.noarch
   sudo yum install -y perl-tests.x86_64
