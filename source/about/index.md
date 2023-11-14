@@ -96,6 +96,12 @@ toc:
   sudo apt-get install -y gettext         # --enable-nls
   sudo apt-get install -y libperl-dev     # --with-perl
   sudo apt-get install -y libpython3-dev  # --with-python
+  sudo apt-get install -y liblz4-dev      # --with-lz4
+
+  # Install perf tool
+  sudo apt-get install -y linux-tools-common
+  sudo apt-get install -y linux-tools-generic
+  sudo apt-get install -y linux-tools-`uname -r`
 #+end_src
 
 Or, you can use the following command to install IPC::Run.
