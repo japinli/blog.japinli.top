@@ -210,5 +210,8 @@ index 242a7ce6b7..b0ddc7db44 100644
 [1] https://pubs.opengroup.org/onlinepubs/7908799/xbd/envvar.html
 
 <div class="just-for-fun">
-笑林广记 -
+笑林广记 - 驼叔
+
+有驼子赴席，泰然上座。众客既齐，自觉不安，复趋下谦。
+众客曰：“驼叔请上座，直（侄）背（辈）怎敢。”
 </div>
