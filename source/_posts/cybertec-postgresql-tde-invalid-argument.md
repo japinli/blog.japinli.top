@@ -27,12 +27,12 @@ $ make -j $(nproc) && make install
 
 ```bash
 $ cat <<END > env.sh
-export PGHOME=$pwd/tde
+export PGHOME=$PWD/tde
 export PGPORT=8743
 export PGDATA=\$PGHOME/pgdata
 export PATH=\$PGHOME/bin:\$PATH
 export LD_LIBRARY_PATH=\$PGHOME/lib:\$LD_LIBRARY_PATH
-export PGENCRKEYCMD=$pwd/keycmd.sh
+export PGENCRKEYCMD=$PWD/keycmd.sh
 END
 $ cat <<END > keycmd.sh
 #!/bin/bash
