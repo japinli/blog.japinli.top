@@ -4,6 +4,7 @@ date: 2022-09-27 23:25:52 +0800
 categories: 数据库
 tags:
   - PostgreSQL
+  - TDE
 ---
 
 本文记录 Cybertec PostgreSQL 数据库在 [`maintenance_work_mem`][] 较大时导致的读取文件参数无效或崩溃的情况。
