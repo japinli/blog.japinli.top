@@ -554,5 +554,10 @@ postgres=# SELECT relname, relnamespace::regnamespace, relpersistence FROM pg_cl
 [2] https://github.com/darold/pgtt/issues/35
 
 <div class="just-for-fun">
-笑林广记 -
+笑林广记 - 吃屁
+
+酒席间有撒屁者，众人互相推卸。
+内一人曰：“列位请各饮一杯，待小弟说了罢。”
+众饮讫，其人曰：“此屁实系小弟撒的。”
+众人不服曰：“为何你撒了屁，倒要我们众人吃？”
 </div>
